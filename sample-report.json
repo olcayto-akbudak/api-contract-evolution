@@ -1,0 +1,39 @@
+{
+  "endpoints": [
+    {
+      "endpoint": "createInvoice",
+      "direction": "request",
+      "changes": [
+        {
+          "path": "$.amount",
+          "change": "REQUIRED",
+          "breaking": true,
+          "reason": "requiredness changed"
+        },
+        {
+          "path": "$.amount",
+          "change": "MINIMUM",
+          "breaking": true,
+          "reason": "value range changed"
+        }
+      ],
+      "gate": "BLOCK",
+      "breaking_changes": 2
+    },
+    {
+      "endpoint": "status",
+      "direction": "response",
+      "changes": [
+        {
+          "path": "$",
+          "change": "ENUM",
+          "breaking": true,
+          "reason": "allowed values changed"
+        }
+      ],
+      "gate": "BLOCK",
+      "breaking_changes": 1
+    }
+  ],
+  "scope": "Directional structural subset; not a full OpenAPI validator"
+}

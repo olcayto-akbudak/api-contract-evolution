@@ -1,0 +1,47 @@
+{
+  "endpoints": [
+    {
+      "name": "createInvoice",
+      "direction": "request",
+      "old": {
+        "type": "object",
+        "properties": {
+          "amount": {
+            "type": "number"
+          }
+        }
+      },
+      "new": {
+        "type": "object",
+        "required": [
+          "amount"
+        ],
+        "properties": {
+          "amount": {
+            "type": "number",
+            "minimum": 1
+          }
+        }
+      }
+    },
+    {
+      "name": "status",
+      "direction": "response",
+      "old": {
+        "type": "string",
+        "enum": [
+          "NEW",
+          "DONE"
+        ]
+      },
+      "new": {
+        "type": "string",
+        "enum": [
+          "NEW",
+          "DONE",
+          "UNKNOWN"
+        ]
+      }
+    }
+  ]
+}
